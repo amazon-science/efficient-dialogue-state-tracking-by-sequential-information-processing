@@ -1,0 +1,6 @@
+_target_: src.data.serializers.NaturalLanguageState
+state_sep: '<extra_id_99>'  # user separators from 50-60
+template: 'The $slot is $value'
+null_value: 'none'
+replace_slot_punct: true
+keep_full_state: false

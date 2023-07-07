@@ -1,0 +1,4 @@
+_target_: src.data.serializers.SchemaSerializer
+sep: ';'
+replace_slot_punct: false
+shuffle: true

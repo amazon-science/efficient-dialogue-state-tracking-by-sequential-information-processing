@@ -1,0 +1,8 @@
+log_grad_norm:
+  _target_: src.core.callbacks.LogGradNorm
+  norm_type: 2
+  group_separator: /
+  only_total: true
+  on_step: true
+  on_epoch: false
+  prog_bar: true

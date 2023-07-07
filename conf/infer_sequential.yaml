@@ -1,0 +1,38 @@
+defaults:
+  - _self_
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
+
+hydra:
+  job:
+    chdir: true
+  run:
+    dir: ${experiment_path}
+
+generation_kwargs:
+  max_new_tokens: 128
+  min_length: 1
+  do_sample: false
+  early_stopping: false
+  num_beams: 4
+  temperature: 1.0
+  top_k: null # 50
+  top_p: null # 0.95
+  repetition_penalty: null
+  length_penalty: null
+  no_repeat_ngram_size: null
+  encoder_no_repeat_ngram_size: null
+  num_return_sequences: 1
+  max_time: null
+  decoder_start_token_id: null
+  use_cache: null
+  num_beam_groups: null
+  diversity_penalty: null
+
+device: 0
+
+experiment_path: '???'
+use_gold: false
+batch_size: 16
+version: null
+remove_wrong_slots: false

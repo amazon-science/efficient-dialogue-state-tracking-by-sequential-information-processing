@@ -1,0 +1,3 @@
+dvc:
+  _target_: dvclive.lightning.DvcLiveLogger
+  path: ./dvc_logs/

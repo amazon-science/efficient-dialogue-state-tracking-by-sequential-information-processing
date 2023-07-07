@@ -1,0 +1,5 @@
+_target_: src.data.serializers.KeyValueState
+null_value: 'none'
+state_sep: ';'
+template: '$slot = $value'
+shuffle: true

@@ -1,0 +1,107 @@
+defaults:
+  - _self_
+  - optimizer: adafactor
+  - callbacks:
+    - model_checkpoint
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
+
+hydra:
+  job:
+    chdir: true
+  run:
+    dir: ./outputs/${experiment_dir}
+  sweep:
+      subdir: ${hydra.run.dir}
+
+data:
+  batch_size: 8
+  eval_batch_size: 16
+  num_workers: 32
+  pin_memory: true
+  drop_last: false
+  persistent_workers: true
+  shuffle: true
+  seed_dataloader: ${seed}
+  replacement: false
+  max_source_length: 512
+  max_target_length: 512
+  filter_long_sequences: false
+  columns_to_keep: null
+
+task: dst
+
+model:
+  name_or_path: null
+  generation_kwargs:
+    max_new_tokens: ${data.max_target_length}
+    min_length: 3
+    do_sample: false
+    early_stopping: false
+    num_beams: 4
+    temperature: 1.0
+    top_k: 50
+    top_p: 0.95
+    repetition_penalty: null
+    length_penalty: null
+    no_repeat_ngram_size: null
+    encoder_no_repeat_ngram_size: null
+    num_return_sequences: 1
+    max_time: null
+    decoder_start_token_id: null
+    use_cache: null
+    num_beam_groups: null
+    diversity_penalty: null
+
+trainer:
+  # hardware
+  accelerator: gpu
+  devices: 1
+  strategy: null
+  # training length
+  max_epochs: 3
+  min_epochs: 1
+  max_steps: -1
+  min_steps: null
+  max_time: null
+  # validation
+  val_check_interval: 1.
+  # logging
+  log_every_n_steps: 1
+  # debugging
+  fast_dev_run: false
+  limit_train_batches: ${limit_batches}
+  limit_val_batches: ${limit_batches}
+  limit_test_batches: ${limit_batches}
+  limit_predict_batches: ${limit_batches}
+  deterministic: true
+  move_metrics_to_cpu: false
+  accumulate_grad_batches: null
+  precision: 32
+
+# ================================================================================
+# NOTE 1: 
+#   these are not in the default list, therefore to use them in the CLI
+#   you need to add `+`, e.g., `+callbacks=model_checkpoint`
+#
+# NOTE 2: 
+#   to have a list of configs, you need to specify it as follows
+#   `+callbacks='[early_stopping,model_checkpoint]'`
+#   ref: https://hydra.cc/docs/patterns/select_multiple_configs_from_config_group/
+# ================================================================================
+scheduler: null
+callbacks: null
+loggers: null
+
+seed: 42
+limit_batches: null
+
+# data inputs
+dataset_name: null
+dataset_path: ${hydra:runtime.cwd}/data/prepared/${dataset_name}
+# dataset_path: ${hydra:runtime.cwd}/data/prepared/${dataset_name}/${replace_bar:${model.name_or_path}}
+
+# artifacts outputs
+experiment_group: baseline
+experiment_name: ${dataset_name}_${now:%Y-%m-%d}T${now:%H-%M-%S}
+experiment_dir: ${experiment_group}/${experiment_name}

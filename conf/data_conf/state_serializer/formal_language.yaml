@@ -1,0 +1,8 @@
+_target_: src.data.serializers.FormalLanguageState
+template: '$command $slot : $value'
+state_sep: '<extra_id_99>'  # user separators from 50-60
+null_value: 'none'
+replace_slot_punct: false
+insert_cmd: INSERT
+update_cmd: UPDATE
+delete_cmd: DELETE

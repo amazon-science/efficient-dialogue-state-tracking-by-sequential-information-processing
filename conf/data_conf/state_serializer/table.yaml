@@ -1,0 +1,5 @@
+_target_: src.data.serializers.TableState
+col_sep: "<extra_id_50>" 
+row_sep: "<extra_id_51>" 
+null_value: "none"
+keep_full_state: false

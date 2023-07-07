@@ -1,0 +1,13 @@
+model_checkpoint:
+  # _target_: pytorch_lightning.callbacks.ModelCheckpoint
+  _target_: src.callbacks.ModelCheckpoint
+  dirpath: ./checkpoints/
+  filename: 'epoch={epoch:02d}'
+  # monitor: 'validation/loss'
+  # mode: min
+  verbose: false
+  save_last: false
+  save_top_k: -1
+  auto_insert_metric_name: false
+  save_on_train_epoch_end: true  # save every time validation epoch end
+  every_n_epochs: 1

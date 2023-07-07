@@ -1,0 +1,8 @@
+log_generated_text:
+  _target_: src.core.callbacks.GenerateAndLogText
+  dirpath: ./generated_text
+  type: generated_text
+  pop_keys_after_logging: true
+  on_train: false
+  on_validation: false
+  on_test: true

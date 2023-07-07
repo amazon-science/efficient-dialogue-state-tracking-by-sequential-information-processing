@@ -1,0 +1,8 @@
+log_model_predictions:
+  _target_: src.core.callbacks.LogModelPredictions
+  dirpath: ./predictions
+  type: predictions
+  pop_keys_after_logging: true
+  on_train: false
+  on_validation: true
+  on_test: true

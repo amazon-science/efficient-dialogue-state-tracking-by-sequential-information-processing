@@ -1,0 +1,10 @@
+_target_: src.data.serializers.NaturalLanguageStateChanges
+state_sep: '<extra_id_99>'  # user separators from 50-60
+template: '$slot : $value'
+null_value: 'none'
+replace_slot_punct: true
+keep_full_state: false
+cmd_template: '$cmd $state'
+insert_cmd: INSERT
+update_cmd: UPDATE
+delete_cmd: DELETE

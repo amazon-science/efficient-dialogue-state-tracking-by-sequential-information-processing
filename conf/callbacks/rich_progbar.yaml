@@ -1,0 +1,4 @@
+rich_progbar:
+  _target_: pytorch_lightning.callbacks.RichProgressBar
+  refresh_rate_per_second: 10
+  leave: False

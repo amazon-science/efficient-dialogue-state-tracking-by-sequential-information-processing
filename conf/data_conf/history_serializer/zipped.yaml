@@ -1,0 +1,4 @@
+_target_: src.data.serializers.ZippedHistory
+turn_sep: ';'
+lag: -1
+template: "system: $sys_utt user: $usr_utt"

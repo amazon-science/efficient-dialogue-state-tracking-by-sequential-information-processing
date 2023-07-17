@@ -634,9 +634,3 @@ class MWoz22Dataset(SchemaGuidedDialogueDataset):
             elif slot in current_state:
                 # print(f"Adding new value {span} for slot {slot} in current_state {current_state}")
                 current_state[slot] = list(set(span + current_state[slot]))
-
-
-if __name__ == "__main__":
-    dataset = SchemaGuidedDialogueDataset("/home/lescipi/t2t-dst/data/raw/schema_guided_dialogue")
-    dataset.load()
-    dataset.process()

@@ -91,6 +91,3 @@ skip_gitignore = true
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
-[experiments.directories]
-output_dir = "/home/lescipi/IC-DST/outputs"

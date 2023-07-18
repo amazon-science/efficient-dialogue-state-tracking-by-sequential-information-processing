@@ -16,6 +16,14 @@ poetry run python ./scripts/process_data.py \
     --format '2.1'
 
 
+# MultiWoz 2.2
+echo 'Processing MultiWoz v2.2'
+poetry run python ./scripts/process_data.py \
+    --input_filepath './data/raw/multiwoz_22' \
+    --output_dir './data/processed/multiwoz_22' \
+    --format '2.2'
+
+
 # MultiWoz 2.3 (does not have split files)
 echo 'Processing MultiWoz v2.3'
 poetry run python ./scripts/process_data.py \
@@ -34,11 +42,3 @@ poetry run python ./scripts/process_data.py \
     --val_split_filepath './data/raw/multiwoz_24/valListFile.json' \
     --test_split_filepath './data/raw/multiwoz_24/testListFile.json' \
     --format '2.1'
-
-
-# MultiWoz 2.2
-echo 'Processing MultiWoz v2.2'
-poetry run python ./scripts/process_data.py \
-    --input_filepath './data/raw/multiwoz_22' \
-    --output_dir './data/processed/multiwoz_22' \
-    --format '2.2'

@@ -40,11 +40,11 @@ mv MULTIWOZ2.4 multiwoz_24
 rm -f multiwoz_24/.DS_Store
 
 
-# Schema-Guided Dataset
-git clone https://github.com/google-research-datasets/dstc8-schema-guided-dialogue.git
-mkdir --parents ./schema_guided_dialogue
-for split in train dev test
-do
-    mv ./dstc8-schema-guided-dialogue/$split ./schema_guided_dialogue/$split
-done
-rm -rf ./dstc8-schema-guided-dialogue
+# # Schema-Guided Dataset
+# git clone https://github.com/google-research-datasets/dstc8-schema-guided-dialogue.git
+# mkdir --parents ./schema_guided_dialogue
+# for split in train dev test
+# do
+#     mv ./dstc8-schema-guided-dialogue/$split ./schema_guided_dialogue/$split
+# done
+# rm -rf ./dstc8-schema-guided-dialogue

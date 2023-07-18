@@ -4,8 +4,16 @@
 
 set -e
 
+
+# ============
+# MultiWoz 2.2
+# ============
+
+
 echo 'Preparing MultiWoz v2.2'
 
+
+# state operations
 echo 'Previous state -> State operations'
 poetry run python ./scripts/prepare_data.py \
     history_serializer.lag=0 \
@@ -16,6 +24,7 @@ poetry run python ./scripts/prepare_data.py \
     input_dir='./data/processed/multiwoz_22' \
     output_dir='./data/prepared/base/mwoz22_ops_nohist+prev'
 
+
 echo 'Full-history -> State operations'
 poetry run python ./scripts/prepare_data.py \
     state_serializer=key_value_state_changes \
@@ -24,6 +33,7 @@ poetry run python ./scripts/prepare_data.py \
     tokenizer='google/t5-v1_1-base' \
     input_dir='./data/processed/multiwoz_22' \
     output_dir='./data/prepared/base/mwoz22_ops_partialhist+prev'
+
 
 echo '4 Turns + Previous state -> State operations'
 poetry run python ./scripts/prepare_data.py \
@@ -34,6 +44,7 @@ poetry run python ./scripts/prepare_data.py \
     tokenizer='google/t5-v1_1-base' \
     input_dir='./data/processed/multiwoz_22' \
     output_dir='./data/prepared/base/mwoz22_ops_partialhist+prev'
+
 
 echo 'Full-history + Previous state -> State operations'
 poetry run python ./scripts/prepare_data.py \
@@ -56,6 +67,7 @@ poetry run python ./scripts/prepare_data.py \
     input_dir='./data/processed/multiwoz_22' \
     output_dir='./data/prepared/base/mwoz22_cum_prevstate'
 
+
 echo 'Full-history -> Cumulative state'
 poetry run python ./scripts/prepare_data.py \
     state_serializer=key_value_state \
@@ -64,6 +76,7 @@ poetry run python ./scripts/prepare_data.py \
     tokenizer='google/t5-v1_1-base' \
     input_dir='./data/processed/multiwoz_22' \
     output_dir='./data/prepared/base/mwoz22_cum_fullhist+nostate'
+
 
 echo '4 turns + Previous state -> Cumulative state'
 poetry run python ./scripts/prepare_data.py \
@@ -74,6 +87,7 @@ poetry run python ./scripts/prepare_data.py \
     tokenizer='google/t5-v1_1-base' \
     input_dir='./data/processed/multiwoz_22' \
     output_dir='./data/prepared/base/mwoz22_cum_fullhist+nostate'
+
 
 echo 'Full-history + Previous state -> Cumulative state'
 poetry run python ./scripts/prepare_data.py \
@@ -86,11 +100,14 @@ poetry run python ./scripts/prepare_data.py \
 
 
 # ============
-# Prepare data
+# MultiWoz 2.1
 # ============
+
 
 echo 'Preparing MultiWoz v2.1'
 
+
+# state operations
 echo 'Previous state -> State operations'
 poetry run python ./scripts/prepare_data.py \
     history_serializer.lag=0 \
@@ -100,6 +117,7 @@ poetry run python ./scripts/prepare_data.py \
     tokenizer='google/t5-v1_1-base' \
     input_dir='./data/processed/multiwoz_21' \
     output_dir='./data/prepared/base/mwoz21_ops_nohist+prev'
+
 
 echo '4 Turns + Previous state -> State operations'
 poetry run python ./scripts/prepare_data.py \
@@ -121,4 +139,3 @@ poetry run python ./scripts/prepare_data.py \
     tokenizer='google/t5-v1_1-base' \
     input_dir='./data/processed/multiwoz_21' \
     output_dir='./data/prepared/base/mwoz21_cum_fullhist+nostate'
-

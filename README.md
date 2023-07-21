@@ -1,4 +1,4 @@
-## Introduction
+## Diable: Efficient Dialogue State Tracking as Operations on Tables
 
 This repository contains the code used for the paper titled [Diable: Efficient Dialogue State Tracking as Operations on Tables](https://aclanthology.org/2023.findings-acl.615/).
 

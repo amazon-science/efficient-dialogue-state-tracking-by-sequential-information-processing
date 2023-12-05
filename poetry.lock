@@ -4668,14 +4668,14 @@ files = [
 pyparsing = ">=2.1.4"
 
 [[package]]
-name = "PyDrive2"
-version = "1.14.0"
+name = "pydrive2"
+version = "1.16.2"
 description = "Google Drive API made easy. Maintained fork of PyDrive."
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "PyDrive2-1.14.0-py3-none-any.whl", hash = "sha256:053a09b5f8e00d275aefc78da7c6b55da9d228aface2dfdbd4d2d49d3713da2b"},
-    {file = "PyDrive2-1.14.0.tar.gz", hash = "sha256:db5da3be671630f571ca7100b281d8b5d72fd078acd425247a6d292e2b3d2840"},
+    {file = "PyDrive2-1.16.2-py3-none-any.whl", hash = "sha256:27a6f586e8e28cbccbe98042220991f676e942ee57640a4f4f39f7182fb6c476"},
+    {file = "PyDrive2-1.16.2.tar.gz", hash = "sha256:d205233d650dea4b9f6d5c4ab50ff7de0c856e6243235690f6732a2f65fa6a79"},
 ]
 
 [package.dependencies]
@@ -4686,12 +4686,11 @@ google-api-python-client = ">=1.12.5"
 oauth2client = ">=4.0.0"
 pyOpenSSL = ">=19.1.0"
 PyYAML = ">=3.0"
-six = ">=1.13.0"
 tqdm = {version = ">=4.0.0", optional = true, markers = "extra == \"fsspec\""}
 
 [package.extras]
 fsspec = ["appdirs (>=1.4.3)", "fsspec (>=2021.07.0)", "funcy (>=1.14)", "tqdm (>=4.0.0)"]
-tests = ["black (==22.3.0)", "flake8", "flake8-docstrings", "funcy (>=1.14)", "pytest (>=4.6.0)", "pytest-mock", "timeout-decorator"]
+tests = ["black (==23.9.1)", "flake8", "flake8-docstrings", "funcy (>=1.14)", "importlib-resources (<6)", "pyinstaller", "pytest (>=4.6.0)", "pytest-mock", "timeout-decorator"]
 
 [[package]]
 name = "pyflakes"
